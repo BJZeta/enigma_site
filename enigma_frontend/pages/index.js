@@ -13,8 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Enya Hernandez <br />
-          ENIGMA
+          Enigma
         </h1>
 
         <p className={styles.description}>WHAT UP!?!?</p>

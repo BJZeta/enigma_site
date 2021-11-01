@@ -1,8 +1,10 @@
+import Layout from "../../components/Layout"
+
 function GalleryPage() {
     return (
-        <div>
+        <Layout>
             <h1>The Galleria</h1>
-        </div>
+        </Layout>
     )
 }
 

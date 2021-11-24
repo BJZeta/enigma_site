@@ -12,7 +12,7 @@ export default function Home({ art_pieces }) {
       </div>
 
       <div className={styles.top_paintings}>
-        {art_pieces.map((piece) => (
+        {art_pieces.slice(0, 3).map((piece) => (
           <img src={urlFor(piece.mainImage)} alt={piece.slug} />
         ))}
       </div>

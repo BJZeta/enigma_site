@@ -14,11 +14,15 @@ export default function GalleryPage({ art_pieces }) {
             className={styles.gallery_item}
             key={`art-piece-${art_piece.slug.current}`}
           >
-            <img
-              src={urlFor(art_piece.mainImage)}
-              alt={art_piece.slug.current}
-            />
-            <h2>{art_piece.name}</h2>
+            <Link href={`gallery/${art_piece.slug.current}`}>
+              <a>
+                <img
+                  src={urlFor(art_piece.mainImage)}
+                  alt={art_piece.slug.current}
+                />
+                <h2>{art_piece.name}</h2>
+              </a>
+            </Link>
           </div>
         ))}
       </div>

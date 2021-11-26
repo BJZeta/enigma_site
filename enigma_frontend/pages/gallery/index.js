@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import { sanityClient, urlFor } from "../../sanity";
+import ArtPieceCard from "../../components/ArtPieceCard";
 import styles from "../../styles/GalleryPage.module.css";
 
 export default function GalleryPage({ art_pieces }) {
@@ -9,21 +10,13 @@ export default function GalleryPage({ art_pieces }) {
     <Layout>
       <h1>Gallery</h1>
       <div className={styles.gallery_items}>
-        {art_pieces.map((art_piece) => (
-          <div
-            className={styles.gallery_item}
-            key={`art-piece-${art_piece.slug.current}`}
-          >
-            <Link href={`gallery/${art_piece.slug.current}`}>
-              <a>
-                <img
-                  src={urlFor(art_piece.mainImage)}
-                  alt={art_piece.slug.current}
-                />
-                <h2>{art_piece.name}</h2>
-              </a>
-            </Link>
-          </div>
+        {art_pieces.map((piece) => (
+          <ArtPieceCard
+            img={piece.mainImage}
+            slug={piece.slug.current}
+            id={piece.id}
+            title={piece.title}
+          />
         ))}
       </div>
     </Layout>

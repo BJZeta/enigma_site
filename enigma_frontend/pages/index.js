@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import { sanityClient, urlFor } from "../sanity";
+import ArtPieceCard from "../components/ArtPieceCard";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ art_pieces }) {
@@ -13,7 +14,11 @@ export default function Home({ art_pieces }) {
 
       <div className={styles.top_paintings}>
         {art_pieces.slice(0, 3).map((piece) => (
-          <img src={urlFor(piece.mainImage)} alt={piece.slug} />
+          <ArtPieceCard
+            img={piece.mainImage}
+            slug={piece.slug.current}
+            id={piece.id}
+          />
         ))}
       </div>
     </Layout>

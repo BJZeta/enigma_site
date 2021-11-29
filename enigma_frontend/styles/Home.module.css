@@ -1,5 +1,17 @@
 .jumbotron {
+    height: 700px;
+    text-align: center;
 }
 
-.top_paintings {
+.jumbotron h1, .jumbotron h2 {
+    margin: auto;
+}
+
+.jumbotron h1 {
+    padding-top: 300px;
+}
+
+.paintings {
+    display: grid;
+    grid-template-columns: auto auto auto;    
 }

@@ -9,17 +9,20 @@ export default function Home({ art_pieces }) {
     <Layout>
       <div className={styles.jumbotron}>
         <h1>ENIGMA</h1>
-        <h1>Every Second is a Gift</h1>
+        <h2>Every Second is a Gift</h2>
       </div>
 
       <div className={styles.top_paintings}>
-        {art_pieces.slice(0, 3).map((piece) => (
-          <ArtPieceCard
-            img={piece.mainImage}
-            slug={piece.slug.current}
-            id={piece.id}
-          />
-        ))}
+        <h2>Most Recent Pieces</h2>
+        <div className={styles.paintings}>
+          {art_pieces.slice(0, 3).map((piece) => (
+            <ArtPieceCard
+              img={piece.mainImage}
+              slug={piece.slug.current}
+              id={piece.id}
+            />
+          ))}
+        </div>
       </div>
     </Layout>
   );

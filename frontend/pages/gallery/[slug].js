@@ -1,3 +1,8 @@
+import { useRouter } from "next/router";
+import Layout from "../../components/Layout";
+
 export default function ArtPiece() {
-  return <div>An Art Piece</div>;
+  const router = useRouter();
+
+  return <Layout>An Art Piece</Layout>;
 }

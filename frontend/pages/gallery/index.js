@@ -1,6 +1,9 @@
 import Layout from "../../components/Layout";
+import { useRouter } from "next/router";
 
 export default function GalleryPage() {
+  const router = useRouter();
+
   return (
     <Layout
       title="ENIGMA | GALLERY"

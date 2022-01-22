@@ -26,12 +26,6 @@ export default {
       },
     },
     {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [{ type: "text" }],
-    },
-    {
       name: "type",
       title: "Type",
       type: "array",

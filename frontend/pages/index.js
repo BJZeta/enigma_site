@@ -1,9 +1,45 @@
+import Link from "next/link";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
+import groq from "groq";
 import Layout from "../components/Layout";
 
-export default function Home() {
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source);
+}
+
+export default function Home({ pieces }) {
   return (
     <Layout>
-      <h1>Home</h1>
+      <div id="jumbotron">
+        <h1>ENIGMA</h1>
+      </div>
+      <div id="recent-pieces">
+        {pieces.length > 0 &&
+          pieces.map(
+            ({ _id, title = "", slug = "", mainImage }) =>
+              slug && (
+                <li key={_id}>
+                  <Link href="/gallery/[slug]" as={`/gallery/${slug.current}`}>
+                    <a>
+                      <img src={urlFor(mainImage)} alt={title} />
+                    </a>
+                  </Link>
+                </li>
+              )
+          )}
+      </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const pieces = await client.fetch(groq`
+  *[_type == "art" && publishedAt < now()] | order(publishedAt desc)
+  `);
+  return {
+    props: {
+      pieces,
+    },
+  };
 }

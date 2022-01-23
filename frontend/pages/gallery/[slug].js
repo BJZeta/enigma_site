@@ -12,11 +12,11 @@ export default function ArtPiece({ art }) {
 
   console.log(art);
 
-  const { description, for_sale, mainImage, publishedAt, sale_link, title } =
+  const { description, for_sale, mainImage, publishedAt, sale_link, title, slug } =
     art;
 
   return (
-    <Layout>
+    <Layout title={`ENIGMA | ${slug.current}`}>
       <article>
         <section>
           <h1>{title}</h1>

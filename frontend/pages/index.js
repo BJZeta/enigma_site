@@ -11,8 +11,9 @@ function urlFor(source) {
 export default function Home({ pieces }) {
   return (
     <Layout>
-      <div id="jumbotron">
+      <div className="jumbotron">
         <h1>ENIGMA</h1>
+        <h2>See a collection of unique pieces for auction</h2>
       </div>
       <div id="recent-pieces">
         {pieces.length > 0 &&

@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5em 12% 4em 3%;
+    font-size: 20px;
+    height: 80px;
+}
+
+.footer a {
+    text-decoration: underline;
+}

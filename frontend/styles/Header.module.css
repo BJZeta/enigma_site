@@ -1,0 +1,42 @@
+.navbar {
+  background-color: black;
+  height: 75px;
+  padding-left: 45%;
+  padding-right: 3em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  color: white;
+  font-size: 20px;
+}
+
+.logo a {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navbar li {
+  list-style: none;
+  margin-left: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar {
+    padding-left: 12%;
+  }
+}

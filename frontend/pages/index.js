@@ -1,8 +1,8 @@
-import Link from "next/link";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import groq from "groq";
 import Layout from "../components/Layout";
+import ArtPiece from "../components/ArtPiece";
 import styles from "../styles/Home.module.css";
 
 function urlFor(source) {
@@ -21,12 +21,12 @@ export default function Home({ pieces }) {
           pieces.map(
             ({ _id, title = "", slug = "", mainImage }) =>
               slug && (
-                  <Link href="/gallery/[slug]" as={`/gallery/${slug.current}`} key={_id}>
-                    <a>
-                      <img src={urlFor(mainImage)} alt={title} />
-                      <h3>{title}</h3>
-                    </a>
-                  </Link>
+                <ArtPiece
+                  _id={_id}
+                  title={title}
+                  slug={slug}
+                  mainImage={mainImage}
+                />
               )
           )}
       </div>

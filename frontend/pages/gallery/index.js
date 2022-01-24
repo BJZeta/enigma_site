@@ -1,36 +1,25 @@
 import Layout from "../../components/Layout";
-import imageUrlBuilder from "@sanity/image-url";
-import Link from "next/link";
+import ArtPiece from "../../components/ArtPiece";
 import client from "../../client";
 import groq from "groq";
-import { useRouter } from "next/router";
+import styles from '../../styles/Gallery.module.css'
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
-
-export default function GalleryPage({pieces}) {
-  const router = useRouter();
+export default function GalleryPage({ pieces }) {
 
   return (
     <Layout
       title="ENIGMA | GALLERY"
       description="Gallery of Enigma's latest pieces"
     >
-      <h1>Gallery Page</h1>
-      <div id="recent-pieces">
+      <div className={styles.title}>
+        <h1>Gallery Page</h1>
+      </div>
+      <div className={styles["recent-pieces"]}>
         {pieces.length > 0 &&
           pieces.map(
             ({ _id, title = "", slug = "", mainImage }) =>
               slug && (
-                <li key={_id}>
-                  <Link href="/gallery/[slug]" as={`/gallery/${slug.current}`}>
-                    <a>
-                      <img src={urlFor(mainImage)} alt={title} />
-                      <h3>{title}</h3>
-                    </a>
-                  </Link>
-                </li>
+                <ArtPiece _id={_id} title={title} slug={slug} mainImage={mainImage}/>
               )
           )}
       </div>

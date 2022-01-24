@@ -9,7 +9,7 @@ export default function Footer() {
           webdevbrandon
         </a>
       </p>
-      <p>Copyright &copy; ENIGMA 2022</p>
+      <p className={styles.copyright}>Copyright &copy; ENIGMA 2022</p>
     </footer>
   );
 }

@@ -3,7 +3,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 
 export default function Contact() {
   return (
-    <div className={styles.contact}>
+    <div className={styles.contact} id="contact">
       <section>
         <h1>Contact for Commissions</h1>
         <p>Please feel free to send in commission requests at:</p>

@@ -12,7 +12,7 @@ export default function GalleryPage({ pieces }) {
       description="Gallery of Enigma's latest pieces"
     >
       <div className={styles.title}>
-        <h1>Gallery Page</h1>
+        <h1>Gallery</h1>
       </div>
       <div className={styles["recent-pieces"]}>
         {pieces.length > 0 &&

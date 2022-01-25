@@ -2,22 +2,30 @@ import { useRouter } from "next/router";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../../client";
 import Layout from "../../components/Layout";
+import styles from "../../styles/ArtPiecePage.module.css";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-export default function ArtPiece({ art }) {
+export default function ArtPiecePage({ art }) {
   const router = useRouter();
 
   console.log(art);
 
-  const { description, for_sale, mainImage, publishedAt, sale_link, title, slug } =
-    art;
+  const {
+    description,
+    for_sale,
+    mainImage,
+    publishedAt,
+    sale_link,
+    title,
+    slug,
+  } = art;
 
   return (
     <Layout title={`ENIGMA | ${slug.current}`}>
-      <article>
+      <article className={styles["art-info"]}>
         <section>
           <h1>{title}</h1>
           <p>{description}</p>

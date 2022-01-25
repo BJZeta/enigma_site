@@ -1,0 +1,19 @@
+.about {
+    margin: 10em 15em;
+}
+
+.about h1 {
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+.about p {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .about {
+        margin-left: 3em;
+        margin-right: 5em
+    }
+}

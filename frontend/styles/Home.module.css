@@ -26,7 +26,7 @@
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
   .jumbotron h2 {
     font-size: 20px;
     max-width: 80%;
@@ -34,10 +34,20 @@
   }
 
   .recent-pieces {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-content: space-around;    
   }  
 
   .recent-pieces h3 {
       font-size: 30px;
   }
+}
+
+@media screen and (max-width: 900px) {
+
+  .recent-pieces {
+    grid-template-columns: 1fr;
+  }  
+
 }

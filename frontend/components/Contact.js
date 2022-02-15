@@ -1,4 +1,5 @@
 import styles from "../styles/Contact.module.css";
+import Image from "next/image";
 import { AiOutlineInstagram } from "react-icons/ai";
 
 export default function Contact() {
@@ -11,10 +12,14 @@ export default function Contact() {
           <p>enigm.artek@gmail.com</p>
         </a>
         <a href="https://www.instagram.com/en_igm.artek/" target="_blank">
-          <p>en_igm.artek <AiOutlineInstagram /></p>          
+          <p>
+            en_igm.artek <AiOutlineInstagram />
+          </p>
         </a>
       </section>
-      <img src="/static/contact.jpg" alt="contact" />
+      <div className={styles.contact_image}>
+        <Image src="/static/contact.jpg" width={1080} height={1080} layout="responsive" objectFit="contain" />
+      </div>
     </div>
   );
 }

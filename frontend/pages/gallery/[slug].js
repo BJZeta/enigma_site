@@ -1,12 +1,9 @@
 import { useRouter } from "next/router";
-import imageUrlBuilder from "@sanity/image-url";
+import Image from "next/image";
+import { useNextSanityImage } from "next-sanity-image";
 import client from "../../client";
 import Layout from "../../components/Layout";
 import styles from "../../styles/ArtPiecePage.module.css";
-
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
 
 export default function ArtPiecePage({ art }) {
   const router = useRouter();
@@ -22,6 +19,8 @@ export default function ArtPiecePage({ art }) {
     title,
     slug,
   } = art;
+
+  const imageProps = useNextSanityImage(client, mainImage);
 
   return (
     <Layout title={`ENIGMA | ${slug.current}`}>
@@ -41,7 +40,16 @@ export default function ArtPiecePage({ art }) {
           )}
         </section>
         <section>
-          <img src={urlFor(mainImage)} alt={title} />
+          <div className={styles["art-piece"]}>
+            <Image
+              src={imageProps.src}
+              loader={imageProps.loader}
+              width={imageProps.width}
+              height={imageProps.height}
+              layout="responsive"
+              objectFit="contain"
+            />
+          </div>
         </section>
       </article>
     </Layout>

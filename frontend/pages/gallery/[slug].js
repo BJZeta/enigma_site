@@ -6,34 +6,23 @@ import Layout from "../../components/Layout";
 import styles from "../../styles/ArtPiecePage.module.css";
 
 export default function ArtPiecePage({ art }) {
-  const router = useRouter();
 
-  console.log(art);
+  // const { for_sale, mainImage, sale_link, title, slug } = art;
 
-  const {
-    description,
-    for_sale,
-    mainImage,
-    publishedAt,
-    sale_link,
-    title,
-    slug,
-  } = art;
-
-  const imageProps = useNextSanityImage(client, mainImage);
+  const imageProps = useNextSanityImage(client, art.mainImage);
 
   return (
-    <Layout title={`ENIGMA | ${slug.current}`}>
+    <Layout title={`ENIGMA | ${art.slug.current}`}>
       <article className={styles["art-info"]}>
         <section>
-          <h1>{title}</h1>
-          <p>{description}</p>
-          {!for_sale ? (
+          <h1>{art.title}</h1>
+          <p>{art.description}</p>
+          {!art.for_sale ? (
             <h2>Piece is not for sale</h2>
           ) : (
             <h2>
               You can find this piece up for auction at{" "}
-              <a href={sale_link} target="_blank">
+              <a href={art.sale_link} target="_blank" rel="noreferrer">
                 This Link
               </a>
             </h2>
@@ -48,6 +37,7 @@ export default function ArtPiecePage({ art }) {
               height={imageProps.height}
               layout="responsive"
               objectFit="contain"
+              alt={art.title}
             />
           </div>
         </section>

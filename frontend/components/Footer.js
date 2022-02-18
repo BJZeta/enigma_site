@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <p>
         Made by{" "}
-        <a href="https://www.webdevbrandon.com" target="_blank">
+        <a href="https://www.webdevbrandon.com" target="_blank" rel="noreferrer">
           webdevbrandon
         </a>
       </p>

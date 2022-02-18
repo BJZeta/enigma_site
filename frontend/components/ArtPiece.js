@@ -18,6 +18,7 @@ export default function ArtPiece({ _id, slug, mainImage, title }) {
             height={imageProps.height}            
             layout="responsive"
             objectFit="contain"
+            alt={title}
           />
         </div>
         <h3>{title}</h3>

@@ -1,13 +1,8 @@
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../client";
 import groq from "groq";
 import Layout from "../components/Layout";
 import ArtPiece from "../components/ArtPiece";
 import styles from "../styles/Home.module.css";
-
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
+import { sanityClient } from "../lib/sanity";
 
 export default function Home({ pieces }) {
   return (
@@ -34,10 +29,12 @@ export default function Home({ pieces }) {
   );
 }
 
+const query = `
+*[_type == "art" && publishedAt < now()] | order(publishedAt desc)
+`;
+
 export async function getStaticProps() {
-  const pieces = await client.fetch(groq`
-  *[_type == "art" && publishedAt < now()] | order(publishedAt desc)
-  `);
+  const pieces = await sanityClient.fetch(query);
   return {
     props: {
       pieces,

@@ -1,11 +1,9 @@
 import Layout from "../../components/Layout";
 import ArtPiece from "../../components/ArtPiece";
-import client from "../../client";
-import groq from "groq";
-import styles from '../../styles/Gallery.module.css'
+import { sanityClient } from "../../lib/sanity";
+import styles from "../../styles/Gallery.module.css";
 
 export default function GalleryPage({ pieces }) {
-
   return (
     <Layout
       title="ENIGMA | GALLERY"
@@ -19,7 +17,12 @@ export default function GalleryPage({ pieces }) {
           pieces.map(
             ({ _id, title = "", slug = "", mainImage }) =>
               slug && (
-                <ArtPiece _id={_id} title={title} slug={slug} mainImage={mainImage}/>
+                <ArtPiece
+                  _id={_id}
+                  title={title}
+                  slug={slug}
+                  mainImage={mainImage}
+                />
               )
           )}
       </div>
@@ -27,10 +30,12 @@ export default function GalleryPage({ pieces }) {
   );
 }
 
+const query = `
+*[_type == "art" && publishedAt < now()] | order(publishedAt desc)
+`;
+
 export async function getStaticProps() {
-  const pieces = await client.fetch(groq`
-  *[_type == "art" && publishedAt < now()] | order(publishedAt desc)
-  `);
+  const pieces = await sanityClient.fetch(query);
   return {
     props: {
       pieces,

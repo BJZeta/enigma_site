@@ -5,6 +5,7 @@
   align-items: center;
   height: 400px;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .contact section {
@@ -36,19 +37,16 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
     .contact {
-      flex-direction: column;
-      margin-bottom: 10em;
-    }
-
-    .contact img{
-        max-width: 30%;
+      flex-direction: column-reverse;
+      text-align: center;
+      margin-top: 10em;
     }
 
     .contact section {
       margin-bottom: 2em;
-      padding-left: 1em;
+      padding-left: 0;
     }
 
     .contact section h1 {

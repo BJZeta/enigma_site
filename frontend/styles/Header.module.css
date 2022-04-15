@@ -45,4 +45,14 @@
   .navbar {
     padding-left: 12%;
   }
+
+  .navbar li a {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .navbar {
+    padding-left: 3%;
+  }
 }

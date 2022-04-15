@@ -12,9 +12,9 @@ export default function Home({}) {
         <h1>ENIGMA</h1>
         <h2>See a collection of unique pieces</h2>
         <Link href="/gallery">
-        <a>
-          <h2>Come to the Gallery</h2>
-        </a>
+          <a className="">
+            <h2>Come to the Gallery</h2>
+          </a>
         </Link>
         <ul className={styles.slideshow}>
           <li>image 1</li>
